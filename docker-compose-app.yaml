@@ -1,0 +1,18 @@
+version: '3'
+services:
+  corn-kernels-api:
+    image: corn-kernels-api
+    container_name: corn-kernels-api
+    privileged: true
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - 8080:8080
+    restart: always
+    networks:
+      - corn-kernels
+networks:
+  corn-kernel:
+    external:
+      name: corn-kernels
